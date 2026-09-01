@@ -1,4 +1,4 @@
-# 第一個vibe coding app
+# My first vibe coding app
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python 3.14" />
