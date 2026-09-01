@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Validate import and app creation
+        run: |
+          python - <<'PY'
+          import calculator
+          assert hasattr(calculator, 'app')
+          print('App loaded successfully:', calculator.app.title)
+          PY
+
+      - name: Smoke test API route
+        run: |
+          python - <<'PY'
+          import asyncio
+          from fastapi.testclient import TestClient
+          from calculator import app
+
+          client = TestClient(app)
+          response = client.post('/api/calc', json={'expression': '2+3*4'})
+          assert response.status_code == 200, response.text
+          data = response.json()
+          assert data['result'] == 14, data
+          print('API smoke test passed')
+          PY
