@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python 3.14" />
   <img src="https://img.shields.io/badge/FastAPI-0.141-009688?logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Frontend-Static%20UI-FFD43B?logo=html5&logoColor=black" alt="Frontend" />
-  <img src="https://img.shields.io/badge/Release-v1.0.0-4CAF50" alt="Release v1.0.0" />
+  <img src="https://img.shields.io/badge/Release-v1.1.0-4CAF50" alt="Release v1.1.0" />
 </div>
 
 <p align="center">
@@ -119,19 +119,15 @@ curl -X POST http://127.0.0.1:8000/api/calc \
 
 ## Screenshot
 
-> Add a real screenshot here after running the app locally.
-
-```md
 ![Calculator App Screenshot](docs/screenshot.png)
-```
 
-A sample layout would show:
+This release includes the final calculator interface with:
 
-- a large expression panel
-- result display area
-- numeric keypad
-- operator buttons
-- clear and delete controls
+- a large result display area
+- a dark modern theme
+- numeric keypad and operator buttons
+- clear and delete actions
+- a blue equals action for key emphasis
 
 ## Notes
 
@@ -143,6 +139,13 @@ This project is intentionally compact and beginner-friendly. It is ideal for lea
 - API-based UI interactions
 
 ## Release Notes
+
+### v1.1.0
+
+- Updated project metadata and polishing for GitHub release readiness
+- Added a real app screenshot asset in the docs folder
+- Improved README presentation for a cleaner project landing page
+- Kept the calculator app, API, and local startup workflow intact
 
 ### v1.0.0
 
